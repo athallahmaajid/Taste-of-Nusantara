@@ -118,9 +118,8 @@ body {
   margin-bottom: 16px;
 }
 .desc {
-  font-size: 12px;
+  font-size: 24px;
   color: var(--muted);
-  max-width: 380px;
   margin-bottom: 24px;
 }
 
