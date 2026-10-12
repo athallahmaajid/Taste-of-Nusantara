@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=Newsreader:ital,wght@1,400&display=swap" rel="stylesheet">
   
   <!-- CSS Eksternal Utama Tim Kalian -->
-  <link rel="stylesheet" href="css/pesanan.css">
+  <link rel="stylesheet" href="css/output.css">
 </head>
 <body class="bg-[#f8efdc] font-sans text-[#2c1a0e]">
 
@@ -34,50 +34,40 @@
   </header>
 
   <!-- KONTEN UTAMA PESANAN -->
-  <main class="mx-auto p-4 w-3/4 my-12">
-    <div style="background: #ffffff; border: 1px solid var(--line); border-radius: 8px; padding: 32px; box-shadow: 0 4px 12px rgba(44, 26, 14, 0.05);">
+  <main class="mx-auto px-4 w-3/4 my-12">
+    <div style="background: #ffffff; border: 1px solid var(--line); border-radius: 8px; padding: 36px; box-shadow: 0 4px 12px rgba(44, 26, 14, 0.04);">
       
-      <h1 style="font-family: var(--serif); font-size: 28px; color: var(--navy); margin-bottom: 24px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+      <!-- Judul Halaman -->
+      <h1 style="font-family: var(--serif); font-size: 28px; color: var(--navy); margin-bottom: 20px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
         Ringkasan Pesanan Anda
       </h1>
 
-      <!-- Input Nomor Meja -->
-      <div style="margin-bottom: 24px; max-width: 250px;">
-        <label for="table-number" style="display: block; font-weight: 500; margin-bottom: 8px; font-size: 14px;">Nomor Meja:</label>
-        <input type="number" id="table-number" placeholder="Contoh: 05" min="1" 
-               style="width: 100%; padding: 10px; border: 1px solid var(--sand); border-radius: 4px; background: #fff;">
+      <!-- Card Nomor Meja -->
+      <div style="display: flex; align-items: center; gap: 16px; padding: 14px 20px; border: 1px solid var(--line); border-radius: 6px; background: #faf6ed; margin-bottom: 24px; width: fit-content;">
+        <span style="font-weight: 600; color: var(--brown); font-size: 15px;">
+          Nomor Meja :
+        </span>
+        <input type="number" id="table-number" placeholder="Ketik no..." min="1" 
+               style="width: 120px; padding: 8px 12px; border: 1px solid var(--sand); border-radius: 4px; background: #fff; text-align: center; font-weight: 600; font-size: 15px;">
       </div>
 
-      <!-- Tabel Daftar Pesanan -->
-      <div style="overflow-x-auto; margin-bottom: 24px;">
-        <table style="width: 100%; border-collapse: collapse; text-align: left;">
-          <thead>
-            <tr style="background: var(--cream); border-bottom: 1px solid var(--line); font-size: 14px;">
-              <th style="padding: 12px;">Menu</th>
-              <th style="padding: 12px;">Harga</th>
-              <th style="padding: 12px; text-align: center;">Jumlah (Porsi)</th>
-              <th style="padding: 12px;">Subtotal</th>
-              <th style="padding: 12px; text-align: center;">Aksi</th>
-            </tr>
-          </thead>
-          <tbody id="cart-items" style="font-size: 14px;">
-            <!-- Kosong di awal, diisi otomatis lewat JS -->
-          </tbody>
-        </table>
+      <!-- Daftar Menu / Keranjang -->
+      <div id="cart-items" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px;">
+        <!-- Kosong di awal, akan dirender otomatis via JS -->
       </div>
 
       <!-- Catatan Khusus -->
-      <div style="margin-bottom: 32px; max-width: 400px;">
-        <label for="order-notes" style="display: block; font-weight: 500; margin-bottom: 8px; font-size: 14px;">Catatan Khusus:</label>
-        <textarea id="order-notes" rows="3" placeholder="Contoh: Jangan pakai daun bawang..." 
-                  style="width: 100%; padding: 10px; border: 1px solid var(--sand); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+      <div style="margin-bottom: 32px; width: 100%;">
+        <label for="order-notes" style="display: block; font-weight: 500; margin-bottom: 8px; font-size: 14px;">Catatan Khusus Pesanan:</label>
+        <textarea id="order-notes" rows="3" placeholder="Contoh: Jangan pakai pedas, es teh manis dipisah..." 
+                  style="width: 100%; padding: 12px; border: 1px solid var(--sand); border-radius: 4px; background: #fff; resize: vertical; box-sizing: border-box;"></textarea>
       </div>
 
       <!-- Total Harga & Tombol Kirim -->
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 20px; gap: 16px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 24px; gap: 16px;">
         <div>
-          <span style="font-size: 12px; color: var(--muted); display: block;">Total Keseluruhan</span>
-          <span id="total-price" style="font-family: var(--serif); font-size: 24px; color: var(--rust);">Rp 0</span>
+          <span style="font-size: 12px; color: var(--muted); display: block;">Total Keseluruhan Pembayaran</span>
+          <span id="total-price" style="font-family: var(--serif); font-size: 26px; color: var(--rust);">Rp 0</span>
         </div>
         <button id="btn-submit-order" class="btn btn-primary">
           Kirim Pesanan Sekarang
