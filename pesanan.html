@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pesanan Anda - Taste of Nusantara</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=Newsreader:ital,wght@1,400&display=swap" rel="stylesheet">
+  
+  <!-- CSS Eksternal Utama Tim Kalian -->
+  <link rel="stylesheet" href="css/pesanan.css">
+</head>
+<body class="bg-[#f8efdc] font-sans text-[#2c1a0e]">
+
+  <!-- NAVBAR -->
+  <header class="py-6 border-b border-[#e3d5bb]">
+    <div class="mx-auto px-4 w-3/4 flex flex-row flex-wrap items-center justify-between">
+      <a class="brand" href="index.html">Taste of Nusantara</a>
+
+      <ul class="nav-links">
+        <li><a href="katalog.html">Our Menu</a></li>
+        <li><a href="pesanan.html" style="color: var(--rust); font-weight: 600;">Pesanan Anda</a></li>
+        <li><a href="reservasi.html">Reservasi</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+      </ul>
+
+      <a href="pesanan.html" class="cart-btn">
+        Pesanan Anda <span id="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- KONTEN UTAMA PESANAN -->
+  <main class="mx-auto p-4 w-3/4 my-12">
+    <div style="background: #ffffff; border: 1px solid var(--line); border-radius: 8px; padding: 32px; box-shadow: 0 4px 12px rgba(44, 26, 14, 0.05);">
+      
+      <h1 style="font-family: var(--serif); font-size: 28px; color: var(--navy); margin-bottom: 24px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+        Ringkasan Pesanan Anda
+      </h1>
+
+      <!-- Input Nomor Meja -->
+      <div style="margin-bottom: 24px; max-width: 250px;">
+        <label for="table-number" style="display: block; font-weight: 500; margin-bottom: 8px; font-size: 14px;">Nomor Meja:</label>
+        <input type="number" id="table-number" placeholder="Contoh: 05" min="1" 
+               style="width: 100%; padding: 10px; border: 1px solid var(--sand); border-radius: 4px; background: #fff;">
+      </div>
+
+      <!-- Tabel Daftar Pesanan -->
+      <div style="overflow-x-auto; margin-bottom: 24px;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+          <thead>
+            <tr style="background: var(--cream); border-bottom: 1px solid var(--line); font-size: 14px;">
+              <th style="padding: 12px;">Menu</th>
+              <th style="padding: 12px;">Harga</th>
+              <th style="padding: 12px; text-align: center;">Jumlah (Porsi)</th>
+              <th style="padding: 12px;">Subtotal</th>
+              <th style="padding: 12px; text-align: center;">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items" style="font-size: 14px;">
+            <!-- Kosong di awal, diisi otomatis lewat JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Catatan Khusus -->
+      <div style="margin-bottom: 32px; max-width: 400px;">
+        <label for="order-notes" style="display: block; font-weight: 500; margin-bottom: 8px; font-size: 14px;">Catatan Khusus:</label>
+        <textarea id="order-notes" rows="3" placeholder="Contoh: Jangan pakai daun bawang..." 
+                  style="width: 100%; padding: 10px; border: 1px solid var(--sand); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+      </div>
+
+      <!-- Total Harga & Tombol Kirim -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 20px; gap: 16px;">
+        <div>
+          <span style="font-size: 12px; color: var(--muted); display: block;">Total Keseluruhan</span>
+          <span id="total-price" style="font-family: var(--serif); font-size: 24px; color: var(--rust);">Rp 0</span>
+        </div>
+        <button id="btn-submit-order" class="btn btn-primary">
+          Kirim Pesanan Sekarang
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container mx-auto p-4 w-3/4 footer-grid">
+      <div>
+        <h3>Taste of <span>Nusantara</span></h3>
+        <p>Masakan tradisional Indonesia, dimasak seperti di rumah.</p>
+      </div>
+      <div>
+        <h4>Jelajahi</h4>
+        <a href="katalog.html">Our Menu</a>
+        <a href="reservasi.html">Reservasi</a>
+        <a href="galeri.html">Galeri</a>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <p>Jl. Contoh No. 12, Kota Anda<br>Buka 10.00 – 21.00<br>0812-3456-7890</p>
+      </div>
+    </div>
+    <p class="copy flex flex-row justify-center">&copy; 2026 Taste of Nusantara</p>
+  </footer>
+
+  <!-- SCRIPT LOGIKA -->
+  <script src="js/pesanan.js"></script>
+</body>
+</html>
