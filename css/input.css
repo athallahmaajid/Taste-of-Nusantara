@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* Font khusus section reservasi (Playfair untuk .font-serif, Inter untuk body section) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap');
 
 html { scroll-behavior: smooth; }
 
@@ -144,3 +146,137 @@ body {
 .footer a { display: block; color: #cbb99c; text-decoration: none; margin-bottom: 4px; }
 .footer a:hover { color: #fff; }
 .copy { margin-top: 28px; padding-top: 14px; border-top: 1px solid #44301f; font-size: 10px; color: #8d7a5f; }
+
+/* ---------- RESERVASI ---------- */
+/* Aturan dari reservasi.css. body-nya sengaja TIDAK dipindah ke sini:
+   background & font Inter akan menimpa landing page. Section-nya sudah
+   punya bg-[#1A365D], jadi cukup font-nya di-scope ke #reservasi saja. */
+#reservasi { font-family: 'Inter', system-ui, sans-serif; }
+
+/* shortcut: menimpa utility bawaan Tailwind .font-serif untuk seluruh halaman.
+   Aman selama hanya section reservasi yang memakai font-serif; kalau ada
+   section lain, ganti dengan class khusus mis. .font-playfair. */
+.font-serif { font-family: 'Playfair Display', serif; }
+
+/* Kustomisasi scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+/* ---------- GALERI ---------- */
+/* Badge pojok kartu. Sebelumnya cuma ada di style.css (file mati),
+   makanya perlu didefinisikan ulang di sini supaya ikut ter-build. */
+.tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: #5b4632;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+
+.gal-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.gal-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.1;
+  color: var(--brown);
+  margin-bottom: 10px;
+}
+.gal-sub { font-size: 15px; color: var(--muted); margin-bottom: 28px; }
+
+/* Grid 4 kolom. Kartu besar span 2 kolom x 3 baris = 6 sel,
+   14 kartu kecil = 14 sel, total 20 sel (4x5) jadi tanpa celah kosong. */
+.gal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+.gal-card {
+  position: relative;
+  display: block;
+  padding: 0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--sand);
+  border: 1px solid #d9c6a2;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.gal-card--big { grid-column: span 2; grid-row: span 3; aspect-ratio: auto; }
+
+.gal-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+}
+.gal-card:hover img,
+.gal-card:focus-visible img { transform: scale(1.05); }
+.gal-card:focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
+
+/* ---------- LIGHTBOX ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(20, 12, 6, .88);
+}
+.lightbox.is-open { display: flex; }
+.lightbox img {
+  max-width: min(92vw, 900px);
+  max-height: 80vh;
+  border-radius: 6px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .5);
+}
+.lightbox-cap {
+  position: absolute;
+  bottom: 26px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #f2e7d2;
+  font-size: 14px;
+}
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s;
+}
+.lightbox-close:hover { background: rgba(255, 255, 255, .28); }
+
+/* ---------- RESPONSIVE GALERI ---------- */
+@media (max-width: 900px) {
+  .gal-grid { grid-template-columns: repeat(2, 1fr); }
+  .gal-card--big { grid-column: span 2; grid-row: span 2; }
+}
+@media (max-width: 520px) {
+  .gal-grid { grid-template-columns: 1fr; }
+  .gal-card--big { grid-column: span 1; grid-row: span 1; aspect-ratio: 4 / 3; }
+}
