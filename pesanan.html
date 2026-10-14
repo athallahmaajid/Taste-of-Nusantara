@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pesanan Anda - Taste of Nusantara</title>
   
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=Newsreader:ital,wght@1,400&display=swap" rel="stylesheet">
   
-  <!-- CSS Eksternal Utama Tim Kalian -->
   <link rel="stylesheet" href="css/output.css">
 </head>
 <body class="bg-[#f8efdc] font-sans text-[#2c1a0e]">
@@ -43,12 +41,12 @@
       </h1>
 
       <!-- Card Nomor Meja -->
-      <div style="display: flex; align-items: center; gap: 16px; border-radius: 6px; margin-bottom: 24px; width: fit-content;">
-        <span style="font-weight: 600; font-size: 15px;">
+      <div style="display: flex; align-items: center; gap: 16px; padding: 14px 20px; border: 1px solid var(--line); border-radius: 6px; background: #faf6ed; margin-bottom: 24px; width: fit-content;">
+        <span style="font-weight: 600; color: var(--brown); font-size: 15px;">
           Nomor Meja :
         </span>
-        <input type="number" id="table-number" min="1" 
-               style="width: 64px; padding: 8px 12px; border: 1px solid var(--sand); border-radius: 4px; background: #fff; text-align: center; font-weight: 600; font-size: 15px;">
+        <input type="number" id="table-number" placeholder="Ketik no..." min="1" 
+               style="width: 120px; padding: 8px 12px; border: 1px solid var(--sand); border-radius: 4px; background: #fff; text-align: center; font-weight: 600; font-size: 15px;">
       </div>
 
       <!-- Daftar Menu / Keranjang -->
@@ -59,11 +57,11 @@
       <!-- Catatan Khusus -->
       <div style="margin-bottom: 32px; width: 100%;">
         <label for="order-notes" style="display: block; font-weight: 500; margin-bottom: 8px; font-size: 14px;">Catatan Khusus Pesanan:</label>
-        <textarea id="order-notes" rows="3" placeholder="Contoh: Jangan pakai pedas, es teh manis dipisah..." 
+        <textarea id="order-notes" rows="3" placeholder="Contoh: Jangan pakai daun bawang..." 
                   style="width: 100%; padding: 12px; border: 1px solid var(--sand); border-radius: 4px; background: #fff; resize: vertical; box-sizing: border-box;"></textarea>
       </div>
 
-      <!-- Total Harga & Tombol Kirim -->
+      <!-- Total Harga & Tombol Kirim / Pembayaran Akhir -->
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 24px; gap: 16px;">
         <div>
           <span style="font-size: 12px; color: var(--muted); display: block;">Total Keseluruhan Pembayaran</span>
@@ -98,7 +96,6 @@
     <p class="copy flex flex-row justify-center">&copy; 2026 Taste of Nusantara</p>
   </footer>
 
-  <!-- SCRIPT LOGIKA -->
   <script src="js/pesanan.js"></script>
 </body>
 </html>
