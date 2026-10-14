@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masuk / Daftar - Taste of Nusantara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&family=Newsreader:ital,wght@1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/output.css">
+</head>
+<body>
+
+  <div class="auth-shell">
+
+    <!-- TOP: identitas + jalan kembali (bukan navbar utama) -->
+    <header class="auth-top">
+      <a class="brand" href="index.html">Taste of Nusantara</a>
+      <a class="auth-back" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/>
+        </svg>
+        Kembali ke beranda
+      </a>
+    </header>
+
+    <main class="auth-main">
+
+      <!-- Kolom kiri: citra restoran -->
+      <aside class="auth-aside">
+        <img src="img/hero.jpg" alt="" aria-hidden="true">
+        <div class="auth-aside-content">
+          <p class="auth-eyebrow">Masuk &amp; Daftar</p>
+          <p class="auth-quote">“Rasa rumahan, disimpan untuk Anda.”</p>
+          <p class="auth-aside-desc">
+            Simpan menu favorit, ulang pesanan mingguan, dan lacak status pesanan Anda
+            dalam satu akun Taste of Nusantara.
+          </p>
+          <div class="auth-points">
+            <span class="auth-point">Tanpa biaya berlangganan</span>
+            <span class="auth-point">Pesan lebih cepat</span>
+            <span class="auth-point">Riwayat tersimpan</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Kolom kanan: formulir -->
+      <section class="auth-panel">
+        <div class="auth-card">
+
+          <h1 class="auth-title">Selamat datang kembali</h1>
+          <p class="auth-sub" id="auth-sub">Masuk untuk melanjutkan pesanan Anda.</p>
+
+          <div class="auth-tabs" role="tablist" aria-label="Pilih masuk atau daftar">
+            <button type="button" class="auth-tab" role="tab" id="tab-masuk"
+                    aria-controls="panel-masuk" aria-selected="true" tabindex="0">Masuk</button>
+            <button type="button" class="auth-tab" role="tab" id="tab-daftar"
+                    aria-controls="panel-daftar" aria-selected="false" tabindex="-1">Daftar</button>
+          </div>
+
+          <!-- PANEL: MASUK -->
+          <div role="tabpanel" id="panel-masuk" aria-labelledby="tab-masuk" tabindex="0">
+            <form id="form-masuk" novalidate>
+
+              <div class="auth-status" id="status-masuk" role="status" aria-live="polite"></div>
+
+              <div class="field">
+                <label for="login-email">Email</label>
+                <span class="control">
+                  <input class="auth-input" type="email" id="login-email" name="email"
+                         autocomplete="email" placeholder="nama@email.com"
+                         aria-describedby="login-email-err">
+                </span>
+                <p class="auth-error" id="login-email-err" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <label for="login-password">Kata Sandi</label>
+                <span class="control">
+                  <input class="auth-input auth-input--pw" type="password" id="login-password"
+                         name="password" autocomplete="current-password"
+                         aria-describedby="login-password-err">
+                  <button type="button" class="auth-pw-btn" data-pw-toggle="login-password"
+                          aria-label="Tampilkan kata sandi" aria-pressed="false">
+                    <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.7" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.036 12.322a1 1 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178a1 1 0 0 1 0 .644C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                    </svg>
+                    <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.7" aria-hidden="true" hidden>
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65"/>
+                    </svg>
+                  </button>
+                </span>
+                <p class="auth-error" id="login-password-err" role="alert"></p>
+              </div>
+
+              <div class="auth-row">
+                <label class="auth-check" for="login-remember">
+                  <input type="checkbox" id="login-remember" name="remember">
+                  Ingat saya
+                </label>
+                <button type="button" class="auth-link auth-link--btn" data-forgot>Lupa kata sandi?</button>
+              </div>
+
+              <button type="submit" class="auth-submit" data-label="Masuk ke Akun Saya">
+                Masuk ke Akun Saya
+              </button>
+
+              <p class="auth-alt">
+                Belum punya akun? <button type="button" class="auth-link auth-link--btn" data-goto="daftar">Daftar sekarang</button>
+              </p>
+            </form>
+          </div>
+
+          <!-- PANEL: DAFTAR -->
+          <div role="tabpanel" id="panel-daftar" aria-labelledby="tab-daftar" tabindex="0" hidden>
+            <form id="form-daftar" novalidate>
+
+              <div class="auth-status" id="status-daftar" role="status" aria-live="polite"></div>
+
+              <div class="field">
+                <label for="reg-nama">Nama Lengkap</label>
+                <span class="control">
+                  <input class="auth-input" type="text" id="reg-nama" name="nama"
+                         autocomplete="name" placeholder="Nama Anda"
+                         aria-describedby="reg-nama-err">
+                </span>
+                <p class="auth-error" id="reg-nama-err" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <label for="reg-email">Email</label>
+                <span class="control">
+                  <input class="auth-input" type="email" id="reg-email" name="email"
+                         autocomplete="email" placeholder="nama@email.com"
+                         aria-describedby="reg-email-err">
+                </span>
+                <p class="auth-error" id="reg-email-err" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <label for="reg-password">Kata Sandi</label>
+                <span class="control">
+                  <input class="auth-input auth-input--pw" type="password" id="reg-password"
+                         name="password" autocomplete="new-password"
+                         aria-describedby="reg-password-help reg-password-err">
+                  <button type="button" class="auth-pw-btn" data-pw-toggle="reg-password"
+                          aria-label="Tampilkan kata sandi" aria-pressed="false">
+                    <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.7" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.036 12.322a1 1 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178a1 1 0 0 1 0 .644C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                    </svg>
+                    <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.7" aria-hidden="true" hidden>
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65"/>
+                    </svg>
+                  </button>
+                </span>
+                <div class="auth-meter" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+                <p class="auth-help" id="reg-password-help">
+                  Minimal 8 karakter. Kekuatan: <strong data-strength>-</strong>
+                </p>
+                <p class="auth-error" id="reg-password-err" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <label for="reg-konfirmasi">Ulangi Kata Sandi</label>
+                <span class="control">
+                  <input class="auth-input" type="password" id="reg-konfirmasi"
+                         name="konfirmasi" autocomplete="new-password"
+                         aria-describedby="reg-konfirmasi-err">
+                </span>
+                <p class="auth-error" id="reg-konfirmasi-err" role="alert"></p>
+              </div>
+
+              <div class="field">
+                <label class="auth-check" for="reg-setuju">
+                  <input type="checkbox" id="reg-setuju" name="setuju"
+                         aria-describedby="reg-setuju-err">
+                  <span>Saya menyetujui <a class="auth-link" href="#syarat">Syarat &amp; Ketentuan</a> serta Kebijakan Privasi.</span>
+                </label>
+                <p class="auth-error" id="reg-setuju-err" role="alert"></p>
+              </div>
+
+              <button type="submit" class="auth-submit" data-label="Buat Akun Saya">
+                Buat Akun Saya
+              </button>
+
+              <p class="auth-alt">
+                Sudah punya akun? <button type="button" class="auth-link auth-link--btn" data-goto="masuk">Masuk</button>
+              </p>
+            </form>
+          </div>
+
+          <p class="auth-privacy">
+            Data Anda hanya diproses untuk kebutuhan pesanan dan tidak dibagikan ke pihak ketiga.
+          </p>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
