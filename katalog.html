@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/katalog.css">
+    <script src="js/katalog.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Menu</title>
+</head>
+
+<body>
+    <div class="mx-auto p-4 w-3/4">
+
+    <!-- NAVBAR -->
+    <header class="max-w-6xl mx-auto px-6 pt-0 pb-0">
+        <div class="flex flex-row flex flex-wrap items-center justify-between">
+      <a class="brand" href="index.html">Taste of Nusantara
+
+        <ul class="nav-links">
+            <li><a href="katalog.html">Our Menu</a></li>
+            <li><a href="pesanan.html">Pesanan Anda</a></li>
+            <li><a href="reservasi.html">Reservasi</a></li>
+            <li><a href="galeri.html">Galeri</a></li>
+        </ul>
+
+        <a href="pesanan.html" class="cart-btn">
+            Pesanan Anda <span id="cart-count">0</span>
+      </a>
+
+    </div>
+        <div class="text-left max-w-2xl">
+            <span class="text-xs font-bold tracking-widest text-[#1b2f4f] uppercase block mb-2">menu</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-bold tracking-tight text-[#2c1a0e] mb-4">
+                Pilihan dari dapur kami
+            </h1>
+            <p class="text-[#6b5b4b] text-sm md:text-base leading-relaxed">
+                15 masakan utama, minuman, dan pencuci mulut — dikelompokkan dalam tiga kategori agar mudah dipilih.
+            </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 mt-8" id="filter-buttons">
+            <button onclick="filterMenu('semua')" data-filter="semua" class="filter-btn aktif px-6 py-2 rounded-full text-sm font-medium transition-all shadow-sm">
+                Semua
+            </button>
+            <button onclick="filterMenu('makanan utama')" data-filter="makanan utama" class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all shadow-sm">
+                Makanan Utama
+            </button>
+            <button onclick="filterMenu('minuman')" data-filter="minuman" class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all shadow-sm">
+                Minuman
+            </button>
+            <button onclick="filterMenu('makanan penutup')" data-filter="makanan penutup" class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all shadow-sm">
+                Makanan Penutup
+            </button>
+        </div>
+    </header>
+
+     <main class="menu-container">
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/hero.jpg" alt="Rendang Daging">
+                <span class="label-foto"></span>
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">makanan utama</span>
+
+                <h2>Rendang Daging</h2>
+
+                <p>
+                    Daging sapi dimasak santan dan rempah sampai
+                    mengering, disajikan dengan nasi hangat.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 52.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/soto-betawi.jpg" alt="Soto Betawi">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">makanan utama</span>
+
+                <h2>Soto Betawi</h2>
+
+                <p>
+                    Kuah santan dan susu dengan kentang, tomat, dan
+                    daging potong.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 38.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/ayam-goreng-lengkuas.jpg" alt="Ayam Goreng Lengkuas">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">makanan utama</span>
+
+                <h2>Ayam Goreng Lengkuas</h2>
+
+                <p>
+                    Ayam goreng berbumbu lengkuas dan serai,
+                    disambal hijau di samping.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 42.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/gulai-nangka-muda.jpg" alt="Gulai Nangka Muda">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">makanan utama</span>
+
+                <h2>Gulai Nangka Muda</h2>
+
+                <p>
+                    Nangka muda dimasak gulai kuning dengan daun
+                    kunyit.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 36.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/nasi-goreng-kampung.jpg" alt="Nasi Goreng Kampung">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">makanan utama</span>
+
+                <h2>Nasi Goreng Kampung</h2>
+
+                <p>
+                    Nasi goreng kecap dengan telur mata sapi,
+                    bawang goreng, dan acar.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 34.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/ikan-bakar-dabu-dabu.jpg" alt="Ikan Bakar Dabu-Dabu">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">makanan utama</span>
+
+                <h2>Ikan Bakar Dabu-Dabu</h2>
+
+                <p>
+                    Ikan bakar arang disiram dabu-dabu tomat dan
+                    cabai segar.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 58.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/es-cendol-dawet.jpg" alt="Es Cendol Dawet">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">minuman</span>
+
+                <h2>Es Cendol Dawet</h2>
+
+                <p>
+                    Cendol hijau, santan, dan gula aren disajikan es.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 18.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/wedang-jahe.jpg" alt="Wedang Jahe">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">minuman</span>
+
+                <h2>Wedang Jahe</h2>
+
+                <p>
+                    Jahe merekah diseduh hangat dengan gula batu.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 16.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/es-kelapa-muda.jpg" alt="Es Kelapa Muda">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">minuman</span>
+
+                <h2>Es Kelapa Muda</h2>
+
+                <p>
+                    Air dan daging kelapa muda, disajikan dingin.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 15.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/Es-Teh.jpg" alt="Teh Manis">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">minuman</span>
+
+                <h2>Es Teh </h2>
+
+                <p>
+                    Teh Manis, disajikan panas atau
+                    dingin.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 14.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/es-teler.jpg" alt="Es Teler">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">minuman</span>
+
+                <h2>Es Teler</h2>
+
+                <p>
+                    Alpukat, kelapa muda, nangka, dan santan dengan
+                    es serut.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 22.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/klepon-gula-aren.jpg" alt="klepon gula aren">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">makanan penutup</span>
+
+                <h2>Klepon Gula Aren</h2>
+
+                <p>
+                    Bola ketan berisi gula aren, dibalut parutan kelapa.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 15.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/lupis.jpg" alt="lupis Pandan">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">makanan penutup</span>
+
+                <h2>Lupis</h2>
+
+                <p>
+                    Ketan pandan dengan gula aren cair dan kelapa
+                    parut.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 16.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/bubur-sumsum.jpg" alt="Bubur Sumsum">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">makanan penutup</span>
+
+                <h2>Bubur Sumsum</h2>
+
+                <p>
+                    Bubur santan bertekstur lembut, disiram gula
+                    merah.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 17.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="foto-menu">
+                <img src="img/kue-lapis-tepung.jpg" alt="Kue Lapis Tepung">
+            </div>
+
+            <div class="isi-menu">
+                <span class="kategori">makanan penutup</span>
+
+                <h2>Kue Lapis Tepung</h2>
+
+                <p>
+                    Kue lapis berlapis, dikukus bertahap sampai
+                    matang.
+                </p>
+
+                <div class="bagian-bawah">
+                    <span class="harga">Rp 14.000</span>
+                    <button class="tombol-pesan">Pesan</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>
