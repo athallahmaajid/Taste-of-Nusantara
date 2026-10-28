@@ -1,4 +1,4 @@
-// Keranjang dikosongkan dulu sambil menunggu data dari Katalog Menu (Orang 2)
+// Keranjang dikosongkan dulu
 let cart = [];
 
 // Fungsi untuk merender/menampilkan data ke tabel HTML
