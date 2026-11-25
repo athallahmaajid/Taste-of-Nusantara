@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     updateCartCount();
+// Keranjang dikosongkan dulu
+let cart = [];
 
     const currentPath = window.location.pathname;
 
@@ -493,3 +495,5 @@ function removeItem(menuName) {
         renderCart();
     }
 }
+// Jalankan saat halaman dimuat
+renderCart();
